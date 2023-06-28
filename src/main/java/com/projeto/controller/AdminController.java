@@ -5,6 +5,9 @@ import com.projeto.mapper.DriverMapper;
 import com.projeto.model.response.Relatorio1Response;
 import com.projeto.model.request.ConstructorRequest;
 import com.projeto.model.request.DriverRequest;
+import com.projeto.model.response.Relatorio2Response;
+import com.projeto.model.response.Relatorio5Response;
+import com.projeto.model.response.Relatorio6Response;
 import com.projeto.repository.ConstructorRepository;
 import com.projeto.repository.DriverRepository;
 import com.projeto.service.AdminService;
@@ -61,6 +64,12 @@ public class AdminController {
     @Secured("Administrador")
     public List<Relatorio1Response> getResultByStatus() {
         return adminService.getResultByStatus();
+    }
+
+    @GetMapping("/airports-cities")
+    @Secured("Administrador")
+    public List<Relatorio2Response> getAirportsAndCities(@RequestParam String cityName){
+        return adminService.getAirportsAndCities(cityName);
     }
 
     @PostMapping("/driver")
