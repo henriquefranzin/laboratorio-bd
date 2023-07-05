@@ -12,8 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
+import static org.springframework.http.HttpMethod.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @org.springframework.context.annotation.Configuration
@@ -32,6 +31,8 @@ public class Configuration {
                 .antMatchers(POST, "/login")
                 .permitAll()
                 .antMatchers(GET, "/user")
+                .permitAll()
+                .antMatchers(OPTIONS)
                 .permitAll()
                 .anyRequest().authenticated()
                 .and().addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
