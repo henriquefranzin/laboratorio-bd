@@ -21,17 +21,17 @@ public class EscuderiaService {
     }
 
     @Transactional
-    public List<Relatorio3Response> getDriverAndVictories(int constructorId) {
+    public List<Relatorio3Response> getConstructorAndVictories(String p_constructorref) {
         StoredProcedureQuery spq = entityManager.createNamedStoredProcedureQuery("ESC_REL3");
-        spq.setParameter(2, constructorId);
+        spq.setParameter(2, p_constructorref);
         spq.execute();
         return spq.getResultList();
     }
 
     @Transactional
-    public List<Relatorio4Response> getStatusAndQuantities(int constructorId) {
+    public List<Relatorio4Response> getStatusAndQuantities(String p_constructorref) {
         StoredProcedureQuery spq = entityManager.createNamedStoredProcedureQuery("ESC_REL4");
-        spq.setParameter(2, constructorId);
+        spq.setParameter(2, p_constructorref);
         spq.execute();
         return spq.getResultList();
     }

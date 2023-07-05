@@ -19,7 +19,7 @@ import static javax.persistence.ParameterMode.REF_CURSOR;
 @NamedStoredProcedureQuery(name = "PIL_REL5", procedureName = "PIL_REL5", resultClasses = {Relatorio5Response.class},
         parameters = {
                 @StoredProcedureParameter(mode = REF_CURSOR, type = void.class),
-                @StoredProcedureParameter(mode = IN, type = Integer.class)
+                @StoredProcedureParameter(mode = IN, type = String.class)
         })
 @IdClass(Relatorio5Id.class)
 public class Relatorio5Response {

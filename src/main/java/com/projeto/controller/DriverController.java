@@ -74,14 +74,14 @@ public class DriverController {
 
     @GetMapping("/yearAndRaceName")
     @Secured("Piloto")
-    public List<Relatorio5Response> getYearAndRaceName(@RequestParam int driverId){
-        return driverService.getYearAndRaceName(driverId);
+    public List<Relatorio5Response> getYearAndRaceName(@RequestParam String p_driverref){
+        return driverService.getYearAndRaceName(p_driverref);
     }
 
     @GetMapping("/statusAndQuantity")
     @Secured("Piloto")
-    public List<Relatorio6Response> getStatusAndQuantity(@RequestParam int driverId){
-        return driverService.getStatusAndQuantity(driverId);
+    public List<Relatorio6Response> getStatusAndQuantity(@RequestParam String p_driverref){
+        return driverService.getStatusAndQuantity(p_driverref);
     }
 
 }

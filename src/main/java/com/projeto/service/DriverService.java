@@ -22,16 +22,16 @@ public class DriverService {
     }
 
     @Transactional
-    public List<Relatorio5Response> getYearAndRaceName(int driverId) {
+    public List<Relatorio5Response> getYearAndRaceName(String p_driverref) {
         StoredProcedureQuery spq = entityManager.createNamedStoredProcedureQuery("PIL_REL5");
-        spq.setParameter(2, driverId);
+        spq.setParameter(2, p_driverref);
         spq.execute();
         return spq.getResultList();
     }
 
-    public List<Relatorio6Response> getStatusAndQuantity(int driverId) {
+    public List<Relatorio6Response> getStatusAndQuantity(String p_driverref) {
         StoredProcedureQuery spq = entityManager.createNamedStoredProcedureQuery("PIL_REL6");
-        spq.setParameter(2, driverId);
+        spq.setParameter(2, p_driverref);
         spq.execute();
         return spq.getResultList();
     }

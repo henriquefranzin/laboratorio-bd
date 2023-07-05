@@ -68,16 +68,22 @@ public class EscuderiaController {
         return constructorRepository.getTotalDriversByConstructor(p_nome_escuderia);
     }
 
-    @GetMapping("/driverAndVictories")
+    @GetMapping("/constructorAndVictories")
     @Secured("Escuderia")
-    public List<Relatorio3Response> getDriverAndVictories(@RequestParam int constructorId) {
-        return escuderiaService.getDriverAndVictories(constructorId);
+    public List<Relatorio3Response> getConstructorAndVictories(@RequestParam String p_constructorref) {
+        return escuderiaService.getConstructorAndVictories(p_constructorref);
     }
 
     @GetMapping("/statusAndQuantity")
     @Secured("Escuderia")
-    public List<Relatorio4Response> getStatusAndQuantities(@RequestParam int constructorId) {
-        return escuderiaService.getStatusAndQuantities(constructorId);
+    public List<Relatorio4Response> getStatusAndQuantities(@RequestParam String p_constructorref) {
+        return escuderiaService.getStatusAndQuantities(p_constructorref);
+    }
+
+    @GetMapping("/historic")
+    @Secured("Escuderia")
+    public Map<String,?> getEscuderiaHistoric(@RequestParam String p_nome_escuderia){
+        return constructorRepository.getConstructorHistoric(p_nome_escuderia);
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface ConstructorRepository extends JpaRepository<Constructor, Long> {
@@ -24,5 +25,8 @@ public interface ConstructorRepository extends JpaRepository<Constructor, Long> 
 
     @Query(value = "select count(year) from seasons", nativeQuery = true)
     int countAllSeason();
+
+    @Query(value = "select * from get_historico_escuderia(?1)", nativeQuery = true)
+    Map<String,?> getConstructorHistoric(String p_nome_escuderia);
 
 }
